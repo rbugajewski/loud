@@ -10,12 +10,12 @@ if (isset($_GET['add']))
   $description = urldecode($_GET['description']);
   if ($description == '')
   {
-    $description = 'Added by <a href="http://juicycocktail.com/">Juicy Cocktail’s</a> awesome Fuck-Huff-Duff.';
+    $description = 'Added by <a href="http://jeredb.com/">Jered\'s</a> awesome Ping service.';
   }
   $items = Spyc::YAMLLoad('urls.yaml');
   $html = file_get_html($url);
   $item = array();
-  $media_url = $html->find('a[href$=m4a', 0);
+  $media_url = $html->find('a[href$=m4a]', 0);
   if ($media_url == '')
   {
     $media_url = $html->find('a[href$=mp3]', 0);
@@ -48,15 +48,22 @@ if (isset($_GET['add']))
 <!DOCTYPE html>
 <html>
 <head>
-<title>Fuck-Huff-Duff. Very Private Sonar Feed.</title>
+<title>Ping. A Private Sonar Feed.</title>
 <meta charset='utf-8'>
-<meta http-equiv="refresh"
-content="3;url=<?php echo $url; ?>">
+<meta http-equiv="refresh" content="3;url=<?php echo $url; ?>">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <link rel="stylesheet" href="stylesheets/base.css">
+	<link rel="stylesheet" href="stylesheets/skeleton.css">
+	<link rel="stylesheet" href="stylesheets/layout.css">
 </head>
 <body>
-<h1>Added file to Fuck-Huff-Duff. Your Very Private Sonar Feed.</h1>
-<p>You’ll be redirected back to <a href="<?php echo $url; ?>"><?php echo $url; ?></a> in 3 seconds.</p>
-<p>&copy; 2012 <a href="http://juicycocktail.com/">Juicy Cocktail</a></p>
+<div class="container add-top">
+<div class="one-third column offset-by-six">
+<h1>Ping!</h1><h2>File Added to</h2>
+<h4>Your A Private Sonar Feed.</h4>
+<p>You’ll be redirected back to <a class="bookmarklet" href="<?php echo $url; ?>"><?php echo $url; ?></a> in 3 seconds.</p>
+</div>
+</div>
 </body>
 </html>
 
@@ -68,22 +75,29 @@ content="3;url=<?php echo $url; ?>">
 <!DOCTYPE html>
 <html>
 <head>
-<title>Fuck-Huff-Duff. Very Private Sonar Feed.</title>
+<title>Ping! A Private Sonar Feed.</title>
 <meta charset='utf-8'>
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+	<link rel="stylesheet" href="stylesheets/base.css">
+	<link rel="stylesheet" href="stylesheets/skeleton.css">
+	<link rel="stylesheet" href="stylesheets/layout.css">
 </head>
 <body>
-<h1>Fuck-Huff-Duff. Very Private Sonar Feed.</h1>
-<p>Drag the <a href="javascript:location.href='http://<?php echo $_SERVER['HTTP_HOST'].'/'.get_subdir($_SERVER[PHP_SELF]).'/' ?>?add&url='+encodeURIComponent(location.href)+'&description='+encodeURIComponent(window.getSelection?window.getSelection():(document.getSelection?document.getSelection():(document.selection?document.selection.createRange().text:'')));">Fuck-Huff-Duff</a> bookmarklet wherever you want.</p>
+<div class="container add-top">
+<div class="one-third column offset-by-six">
+<h1>Ping!</h1><h4>A Private Sonar Feed.</h4>
+<p>Drag the <a class="bookmarklet" href="javascript:location.href='http://jeredb.com/ping/index.php?add&url='+encodeURIComponent(location.href)+'&description='+encodeURIComponent(window.getSelection?window.getSelection():(document.getSelection?document.getSelection():(document.selection?document.selection.createRange().text:'')));">Ping</a> bookmarklet wherever you want.</p>
+<textarea>
+javascript:location.href='http://jeredb.com/ping/index.php?add&url='+encodeURIComponent(location.href)+'&description='+encodeURIComponent(window.getSelection?window.getSelection():(document.getSelection?document.getSelection():(document.selection?document.selection.createRange().text:'')));
+</textarea>
 <p>
-  Subscribe to my <em>shit</em> in:
-  <?php $feed_url = '://'.$_SERVER['HTTP_HOST'].'/'.get_subdir($_SERVER[PHP_SELF]).'/feed/'; ?>
+  Subscribe:
+  <?php $feed_url = '://'.$_SERVER['HTTP_HOST'].'/'.get_subdir($_SERVER[PHP_SELF],'').'/ping/feed/'; ?>
   <li><a href="http<?php echo $feed_url; ?>">Classic RSS/Atom Reader</a></li>
-  <li><a href="itpc<?php echo $feed_url; ?>">Lousy iTunes</a></li>
+  <li><a href="itpc<?php echo $feed_url; ?>">iTunes</a></li>
   <li><a href="pcast<?php echo $feed_url; ?>">Podcast app</a></li>
 </p>
-<p>&copy; 2012 <a href="http://juicycocktail.com/">Juicy Cocktail</a></p>
+</div>
+</div>
 </body>
 </html>
-
-<!-- <h2>Some Recent Shit</h2> -->
-<?php
