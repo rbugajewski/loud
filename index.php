@@ -86,9 +86,9 @@ if (isset($_GET['add']))
 <div class="container add-top">
 <div class="one-third column offset-by-six">
 <h1>Ping!</h1><h4>A Private Sonar Feed.</h4>
-<p>Drag the <a class="bookmarklet" href="javascript:location.href='http://jeredb.com/ping/index.php?add&url='+encodeURIComponent(location.href)+'&description='+encodeURIComponent(window.getSelection?window.getSelection():(document.getSelection?document.getSelection():(document.selection?document.selection.createRange().text:'')));">Ping</a> bookmarklet wherever you want.</p>
+<p>Drag the <a class="bookmarklet" href="javascript:location.href='<?php $feed_url = 'http://'.$_SERVER['HTTP_HOST'].'/'.get_subdir($_SERVER[PHP_SELF],'').'/ping/'; ?>index.php?add&url='+encodeURIComponent(location.href)+'&description='+encodeURIComponent(window.getSelection?window.getSelection():(document.getSelection?document.getSelection():(document.selection?document.selection.createRange().text:'')));">Ping</a> bookmarklet wherever you want.</p>
 <textarea>
-javascript:location.href='http://jeredb.com/ping/index.php?add&url='+encodeURIComponent(location.href)+'&description='+encodeURIComponent(window.getSelection?window.getSelection():(document.getSelection?document.getSelection():(document.selection?document.selection.createRange().text:'')));
+javascript:location.href='<?php $feed_url = '://'.$_SERVER['HTTP_HOST'].'/'.get_subdir($_SERVER[PHP_SELF],'').'/ping/'; ?>index.php?add&url='+encodeURIComponent(location.href)+'&description='+encodeURIComponent(window.getSelection?window.getSelection():(document.getSelection?document.getSelection():(document.selection?document.selection.createRange().text:'')));
 </textarea>
 <p>
   Subscribe:
