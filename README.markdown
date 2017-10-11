@@ -1,6 +1,6 @@
 # Ping! Very Private Podcast Feed.
 
-*Ping! Very Private Podcast Feed.* lets you add M4A or MP3 files from a web site to a feed for listening later. You can keep it private and subscribe to it in your favorite podcast app. This way people won’t know which moaning from porn movies is your favorite one.
+*Ping! Very Private Podcast Feed.* lets you add M4A or MP3 files from a web site to a feed for listening later. You can keep it private and subscribe to it in your favorite podcast app. 
 
 It is very much like [HuffDuffer](http://huffduffer.com), but private and hosted by you.
 
