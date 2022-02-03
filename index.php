@@ -10,7 +10,7 @@ if (isset($_GET['add']))
   $description = urldecode($_GET['description']);
   if ($description == '')
   {
-    $description = 'Added by <a href="http://juicycocktail.com/">Juicy Cocktail’s</a> awesome Fuck-Huff-Duff.';
+    $description = 'Added by <a href="https://www.cocobit.software/">Cocobit Software</a> Loud.';
   }
   $items = Spyc::YAMLLoad('urls.yaml');
   $html = file_get_html($url);
@@ -21,7 +21,7 @@ if (isset($_GET['add']))
     $media_url = $html->find('a[href$=mp3]', 0);
     if ($media_url == '')
     {
-      die('I could not find any media files.');
+      die('Cannot find any media files.');
     }
   }
   $resolved_media_url = resolve_url($media_url->href);
@@ -30,7 +30,7 @@ if (isset($_GET['add']))
   {
     if ($i['enc_link'] == $resolved_media_url)
     {
-      die('I already have this link. I will not add a duplicate.');
+      die('Duplicate link detected. Skip.');
     }
   }
 
@@ -48,15 +48,15 @@ if (isset($_GET['add']))
 <!DOCTYPE html>
 <html>
 <head>
-<title>Fuck-Huff-Duff. Very Private Sonar Feed.</title>
+<title>Loud.</title>
 <meta charset='utf-8'>
 <meta http-equiv="refresh"
 content="3;url=<?php echo $url; ?>">
 </head>
 <body>
-<h1>Added file to Fuck-Huff-Duff. Your Very Private Sonar Feed.</h1>
+<h1>Added file to Loud.</h1>
 <p>You’ll be redirected back to <a href="<?php echo $url; ?>"><?php echo $url; ?></a> in 3 seconds.</p>
-<p>&copy; 2012 <a href="http://juicycocktail.com/">Juicy Cocktail</a></p>
+<p>&copy; 2012 <a href="https://www.cocobit.software/">Cocobit Software</a></p>
 </body>
 </html>
 
@@ -68,22 +68,21 @@ content="3;url=<?php echo $url; ?>">
 <!DOCTYPE html>
 <html>
 <head>
-<title>Fuck-Huff-Duff. Very Private Sonar Feed.</title>
+<title>Loud.</title>
 <meta charset='utf-8'>
 </head>
 <body>
-<h1>Fuck-Huff-Duff. Very Private Sonar Feed.</h1>
-<p>Drag the <a href="javascript:location.href='http://<?php echo $_SERVER['HTTP_HOST'].'/'.get_subdir($_SERVER[PHP_SELF]).'/' ?>?add&url='+encodeURIComponent(location.href)+'&description='+encodeURIComponent(window.getSelection?window.getSelection():(document.getSelection?document.getSelection():(document.selection?document.selection.createRange().text:'')));">Fuck-Huff-Duff</a> bookmarklet wherever you want.</p>
+<h1>Loud.</h1>
+<p>Drag the <a href="javascript:location.href='https://<?php echo $_SERVER['HTTP_HOST'].'/'.get_subdir($_SERVER[PHP_SELF]).'/' ?>?add&url='+encodeURIComponent(location.href)+'&description='+encodeURIComponent(window.getSelection?window.getSelection():(document.getSelection?document.getSelection():(document.selection?document.selection.createRange().text:'')));">Loud./a> bookmarklet wherever you want.</p>
 <p>
-  Subscribe to my <em>shit</em> in:
+  Subscribe:
   <?php $feed_url = '://'.$_SERVER['HTTP_HOST'].'/'.get_subdir($_SERVER[PHP_SELF]).'/feed/'; ?>
-  <li><a href="http<?php echo $feed_url; ?>">Classic RSS/Atom Reader</a></li>
-  <li><a href="itpc<?php echo $feed_url; ?>">Lousy iTunes</a></li>
+  <li><a href="https<?php echo $feed_url; ?>">Classic RSS/Atom Reader</a></li>
+  <li><a href="itpc<?php echo $feed_url; ?>">iTunes</a></li>
   <li><a href="pcast<?php echo $feed_url; ?>">Podcast app</a></li>
 </p>
-<p>&copy; 2012 <a href="http://juicycocktail.com/">Juicy Cocktail</a></p>
+<p>&copy; 2012–2022 <a href="https://www.cocobit.software/">Cocobit Software</a></p>
 </body>
 </html>
 
-<!-- <h2>Some Recent Shit</h2> -->
 <?php
